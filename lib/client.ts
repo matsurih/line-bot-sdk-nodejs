@@ -284,6 +284,13 @@ export default class Client {
   public async deleteRichMenu(richMenuId: string): Promise<any> {
     return this.http.delete(`${MESSAGING_API_PREFIX}/richmenu/${richMenuId}`);
   }
+  
+  public async validateRichMenu(richMenu: Types.RichMenu): Promise<{}> {
+    return await this.http.post<{}>(
+      `${MESSAGING_API_PREFIX}/richmenu`,
+      richMenu,
+    );
+  }
 
   public async getRichMenuAliasList(): Promise<Types.GetRichMenuAliasListResponse> {
     const res = await this.http.get<Types.GetRichMenuAliasListResponse>(
