@@ -459,6 +459,13 @@ describe("client", () => {
     equal(scope.isDone(), true);
     deepEqual(res, {});
   });
+  
+  it("validateRichMenu", async () => {
+    const scope = mockPost(MESSAGING_API_PREFIX, "/richmenu/validate", richMenu);
+    const res = client.validateRichMenu(richMenu);
+    equal(scope.isDone(), true);
+    deepEqual(res, {});
+  });
 
   it("getRichMenuAliasList", async () => {
     const scope = mockGet(MESSAGING_API_PREFIX, "/richmenu/alias/list");
